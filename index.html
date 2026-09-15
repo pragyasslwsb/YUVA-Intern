@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+
+    <!-- Connect Google Fonts for a clean modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Link to stylesheet for page styling -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar" id="home">
+      <nav class="navbar">
+        <div class="brand">Expense Tracker</div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#summary">Summary</a>
+          <a href="#history">History</a>
+          <button type="button" class="theme-toggle" aria-label="Theme toggle">🌙 Dark</button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="market-badge" aria-label="mini market logo decoration">
+      <div class="logo-mark">🛒</div>
+      <div class="logo-text">Mini Market</div>
+    </div>
+
+    <main class="app">
+      <h1>Expense Tracker</h1>
+      <p class="subtitle">Manage your money easily</p>
+
+      <section class="summary-panel" id="summary">
+        <div class="summary">
+          <div class="summary-card balance-card">
+            <div class="title-row">
+              <span class="emoji">💰</span>
+              <h2>Balance</h2>
+            </div>
+            <p>$2,450.00</p>
+          </div>
+
+          <div class="summary-card income-card">
+            <div class="title-row">
+              <span class="emoji">💵</span>
+              <h2>Income</h2>
+            </div>
+            <p>$3,100.00</p>
+          </div>
+
+          <div class="summary-card expense-card">
+            <div class="title-row">
+              <span class="emoji">💸</span>
+              <h2>Expenses</h2>
+            </div>
+            <p>$650.00</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="entry-panel">
+        <h2>Add Transaction</h2>
+
+        <form>
+          <div class="input-grid">
+            <div class="input-card">
+              <label>Transaction Name</label>
+              <input type="text" placeholder="e.g. Food" />
+            </div>
+
+            <div class="input-card">
+              <label>Amount</label>
+              <input type="number" placeholder="e.g. 500" step="100" min="0" />
+            </div>
+
+            <div class="input-card">
+              <label>Category</label>
+              <select>
+                <option>🍔 Food</option>
+                <option>✈️ Travel</option>
+                <option>🛍️ Shopping</option>
+                <option>📚 Education</option>
+                <option>💡 Other</option>
+              </select>
+            </div>
+
+            <div class="input-card">
+              <label>Type</label>
+              <select>
+                <option>Income</option>
+                <option>Expense</option>
+              </select>
+            </div>
+
+            <div class="input-card">
+              <label>Date</label>
+              <input type="date" />
+            </div>
+          </div>
+
+          <button type="button">Add Transaction</button>
+        </form>
+      </section>
+
+      <section class="budget-panel">
+        <div class="budget-header">
+          <h2>Monthly Budget</h2>
+          <div class="currency-wrap">
+            <label>Currency</label>
+            <select>
+              <option>$ USD</option>
+              <option>€ EUR</option>
+              <option>₹ INR</option>
+              <option>£ GBP</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="budget-controls">
+          <label>Monthly Limit</label>
+          <input type="number" value="1000" min="0" step="10" />
+        </div>
+
+        <div class="budget-progress-track">
+          <div class="budget-progress-bar" style="width: 42%; background: linear-gradient(90deg, #34d399, #4ade80);"></div>
+        </div>
+
+        <div class="budget-meta">
+          <span>Spent $420.00 / $1,000.00</span>
+          <span>42%</span>
+        </div>
+      </section>
+
+      <section class="analytics-panel">
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Category Breakdown</h3>
+            <div class="mock-chart donut-chart">
+              <div class="chart-center">42%</div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>Last 7 Days</h3>
+            <div class="mock-chart line-chart" aria-label="last 7 days expenses chart">
+              <span style="height: 35%"></span>
+              <span style="height: 48%"></span>
+              <span style="height: 60%"></span>
+              <span style="height: 52%"></span>
+              <span style="height: 80%"></span>
+              <span style="height: 72%"></span>
+              <span style="height: 90%"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-panel" id="history">
+        <h2>Recent Transactions</h2>
+        <ul class="transaction-list">
+          <li class="transaction-item">
+            <div class="transaction-main">
+              <div class="transaction-info">
+                <div class="transaction-top">
+                  <span class="transaction-name">Salary</span>
+                  <span class="transaction-amount income">+$2,000.00</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="tag">💡 Other</span>
+                  <span class="date">📅 Sep 1, 2026</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="transaction-item">
+            <div class="transaction-main">
+              <div class="transaction-info">
+                <div class="transaction-top">
+                  <span class="transaction-name">Food</span>
+                  <span class="transaction-amount expense">-$120.00</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="tag">🍔 Food</span>
+                  <span class="date">📅 Sep 12, 2026</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="transaction-item">
+            <div class="transaction-main">
+              <div class="transaction-info">
+                <div class="transaction-top">
+                  <span class="transaction-name">Travel</span>
+                  <span class="transaction-amount expense">-$300.00</span>
+                </div>
+                <div class="transaction-meta">
+                  <span class="tag">✈️ Travel</span>
+                  <span class="date">📅 Sep 14, 2026</span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
