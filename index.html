@@ -3,211 +3,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
-
-    <!-- Connect Google Fonts for a clean modern look -->
+    <title>UI Intern Week 3 | Interactive Internship Portal</title>
+    <meta
+      name="description"
+      content="Interactive internship dashboard task with buttons, form validation, dynamic updates, and animations."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-    <!-- Link to stylesheet for page styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="topbar" id="home">
-      <nav class="navbar">
-        <div class="brand">Expense Tracker</div>
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#summary">Summary</a>
-          <a href="#history">History</a>
-          <button type="button" class="theme-toggle" aria-label="Theme toggle">🌙 Dark</button>
+    <div class="page-shell">
+      <!-- Header section with brand and quick controls -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">UI</span>
+          <div>
+            <p class="eyebrow">Week 3 Task</p>
+            <h1>Interactive Internship Portal</h1>
+          </div>
         </div>
-      </nav>
-    </header>
+        <div class="topbar-actions">
+          <span class="status-badge"><span class="dot"></span> Active internship</span>
+          <button id="themeToggle" class="ghost-btn" type="button" aria-label="Toggle color theme">
+            Toggle Theme
+          </button>
+        </div>
+      </header>
 
-    <div class="market-badge" aria-label="mini market logo decoration">
-      <div class="logo-mark">🛒</div>
-      <div class="logo-text">Mini Market</div>
+      <main class="dashboard">
+        <div class="main-layout">
+          <!-- Sidebar navigation for a dashboard feel -->
+          <aside class="sidebar panel" aria-label="Sidebar navigation">
+            <div class="side-section">
+              <p class="eyebrow accent">Navigation</p>
+              <nav class="nav-list" aria-label="Main navigation">
+                <a class="nav-item active" href="#">Overview</a>
+                <a class="nav-item" href="#">Assignments</a>
+                <a class="nav-item" href="#">Milestones</a>
+                <a class="nav-item" href="#">Feedback</a>
+              </nav>
+            </div>
+
+            <div class="side-section">
+              <p class="eyebrow accent">Quick Actions</p>
+              <div class="quick-actions">
+                <button class="secondary-btn" type="button">Schedule</button>
+                <button class="secondary-btn" type="button">Resources</button>
+              </div>
+            </div>
+          </aside>
+
+          <div class="content-column">
+            <!-- Hero section with CTA buttons and progress card -->
+            <section class="hero panel">
+              <div class="hero-copy">
+                <p class="eyebrow accent">Provisional Submission</p>
+                <h2>Designing a seamless user experience.</h2>
+                <p>
+                  This task demonstrates event handling, DOM updates, validation, and UI
+                  interactions that make a page feel alive and practical for real-world product work.
+                </p>
+                <div class="cta-group">
+                  <button id="detailsToggle" class="primary-btn" type="button">Show Details</button>
+                  <button id="quoteBtn" class="secondary-btn" type="button">Change Insight</button>
+                </div>
+              </div>
+
+              <div class="hero-metric">
+                <div class="metric-card">
+                  <span class="metric-label">Task Progress</span>
+                  <strong id="progressValue">72%</strong>
+                  <div class="progress-bar" aria-label="Task progress indicator">
+                    <span id="progressFill"></span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Extra information panel toggled with a button -->
+            <div id="detailsInfo" class="details-panel hidden panel">
+              <h3>Project Summary</h3>
+              <p>
+                The interface combines semantic structure, responsive design, and JavaScript logic to
+                support user actions without breaking layout integrity. It highlights task planning,
+                form validation, and simple motion to improve understanding of a product flow.
+              </p>
+            </div>
+
+            <!-- Four stat cards for a dashboard feel -->
+            <section class="stats-grid" aria-label="Project statistics">
+              <article class="stat-card panel">
+                <span>Interfaces</span>
+                <strong>3</strong>
+                <small>HTML, CSS, JS</small>
+              </article>
+              <article class="stat-card panel">
+                <span>Features</span>
+                <strong>5+</strong>
+                <small>Buttons, validation, updates</small>
+              </article>
+              <article class="stat-card panel">
+                <span>Animation</span>
+                <strong>100%</strong>
+                <small>Subtle motion effects</small>
+              </article>
+              <article class="stat-card panel">
+                <span>Outcome</span>
+                <strong>Ready</strong>
+                <small>Provisional internship task</small>
+              </article>
+            </section>
+
+            <!-- Main form section -->
+            <section class="content-grid">
+              <div class="panel form-panel">
+                <h3>Project Intake Form</h3>
+                <form id="projectForm" novalidate>
+                  <div class="field">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" name="fullName" type="text" placeholder="Enter your full name" />
+                    <small class="error" id="fullNameError"></small>
+                  </div>
+
+                  <div class="field">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email" placeholder="name@example.com" />
+                    <small class="error" id="emailError"></small>
+                  </div>
+
+                  <div class="field">
+                    <label for="role">Role</label>
+                    <input id="role" name="role" type="text" placeholder="UI Intern / Designer / Developer" />
+                    <small class="error" id="roleError"></small>
+                  </div>
+
+                  <div class="field">
+                    <label for="message">Project Notes</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Briefly describe the task or objective"></textarea>
+                    <small class="error" id="messageError"></small>
+                  </div>
+
+                  <div class="button-row">
+                    <button class="primary-btn" type="submit">Submit Request</button>
+                    <button class="secondary-btn reset-btn" type="reset">Clear</button>
+                  </div>
+                </form>
+
+                <div id="formSuccess" class="success hidden" role="status" aria-live="polite"></div>
+              </div>
+
+              <!-- Preview panel updated live from form input -->
+              <aside class="panel preview-panel" aria-label="Submission preview panel">
+                <h3>Submission Preview</h3>
+                <div class="preview-card">
+                  <p class="preview-label">Candidate</p>
+                  <h4 id="previewName">Your Name</h4>
+                  <p id="previewEmail">your.email@example.com</p>
+                  <div class="preview-tags">
+                    <span id="previewRole">UI Intern</span>
+                  </div>
+                  <p id="previewSummary">Add your details to see a preview.</p>
+                </div>
+              </aside>
+            </section>
+
+            <!-- Tasks section for DOM-based content update -->
+            <section class="panel tasks-panel">
+              <div class="panel-header">
+                <h3>Task Tracker</h3>
+                <div class="task-actions">
+                  <input id="taskInput" type="text" placeholder="Add a task..." aria-label="Add task" />
+                  <button id="addTaskBtn" class="primary-btn" type="button">Add Task</button>
+                </div>
+              </div>
+
+              <ul id="taskList" class="task-list" aria-live="polite">
+                <li class="task-item">Review design requirements</li>
+                <li class="task-item">Build a responsive layout</li>
+                <li class="task-item">Validate form behavior</li>
+              </ul>
+              <p id="taskCount" class="task-count">3 tasks active</p>
+            </section>
+
+            <!-- Checklist section for a final professional touch -->
+            <section class="panel checklist-panel">
+              <h3>Technical Checklist</h3>
+              <ul class="checklist">
+                <li><strong>Implementation choices:</strong> Semantic HTML structure, responsive CSS layouts, and JavaScript events with DOM updates.</li>
+                <li><strong>Design choices:</strong> Clean spacing, accessibility-friendly contrast, and a consistent card-based interface.</li>
+                <li><strong>Challenges:</strong> Keeping the layout stable while adding dynamic elements and form validation without collisions.</li>
+                <li><strong>Debugging:</strong> Verified inputs, checked event listeners, and tested layout responsiveness after each interaction.</li>
+                <li><strong>Outcome:</strong> A provisional internship-ready interface that demonstrates practical front-end logic.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </main>
     </div>
 
-    <main class="app">
-      <h1>Expense Tracker</h1>
-      <p class="subtitle">Manage your money easily</p>
-
-      <section class="summary-panel" id="summary">
-        <div class="summary">
-          <div class="summary-card balance-card">
-            <div class="title-row">
-              <span class="emoji">💰</span>
-              <h2>Balance</h2>
-            </div>
-            <p>$2,450.00</p>
-          </div>
-
-          <div class="summary-card income-card">
-            <div class="title-row">
-              <span class="emoji">💵</span>
-              <h2>Income</h2>
-            </div>
-            <p>$3,100.00</p>
-          </div>
-
-          <div class="summary-card expense-card">
-            <div class="title-row">
-              <span class="emoji">💸</span>
-              <h2>Expenses</h2>
-            </div>
-            <p>$650.00</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="entry-panel">
-        <h2>Add Transaction</h2>
-
-        <form>
-          <div class="input-grid">
-            <div class="input-card">
-              <label>Transaction Name</label>
-              <input type="text" placeholder="e.g. Food" />
-            </div>
-
-            <div class="input-card">
-              <label>Amount</label>
-              <input type="number" placeholder="e.g. 500" step="100" min="0" />
-            </div>
-
-            <div class="input-card">
-              <label>Category</label>
-              <select>
-                <option>🍔 Food</option>
-                <option>✈️ Travel</option>
-                <option>🛍️ Shopping</option>
-                <option>📚 Education</option>
-                <option>💡 Other</option>
-              </select>
-            </div>
-
-            <div class="input-card">
-              <label>Type</label>
-              <select>
-                <option>Income</option>
-                <option>Expense</option>
-              </select>
-            </div>
-
-            <div class="input-card">
-              <label>Date</label>
-              <input type="date" />
-            </div>
-          </div>
-
-          <button type="button">Add Transaction</button>
-        </form>
-      </section>
-
-      <section class="budget-panel">
-        <div class="budget-header">
-          <h2>Monthly Budget</h2>
-          <div class="currency-wrap">
-            <label>Currency</label>
-            <select>
-              <option>$ USD</option>
-              <option>€ EUR</option>
-              <option>₹ INR</option>
-              <option>£ GBP</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="budget-controls">
-          <label>Monthly Limit</label>
-          <input type="number" value="1000" min="0" step="10" />
-        </div>
-
-        <div class="budget-progress-track">
-          <div class="budget-progress-bar" style="width: 42%; background: linear-gradient(90deg, #34d399, #4ade80);"></div>
-        </div>
-
-        <div class="budget-meta">
-          <span>Spent $420.00 / $1,000.00</span>
-          <span>42%</span>
-        </div>
-      </section>
-
-      <section class="analytics-panel">
-        <div class="chart-grid">
-          <div class="chart-card">
-            <h3>Category Breakdown</h3>
-            <div class="mock-chart donut-chart">
-              <div class="chart-center">42%</div>
-            </div>
-          </div>
-          <div class="chart-card">
-            <h3>Last 7 Days</h3>
-            <div class="mock-chart line-chart" aria-label="last 7 days expenses chart">
-              <span style="height: 35%"></span>
-              <span style="height: 48%"></span>
-              <span style="height: 60%"></span>
-              <span style="height: 52%"></span>
-              <span style="height: 80%"></span>
-              <span style="height: 72%"></span>
-              <span style="height: 90%"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="history-panel" id="history">
-        <h2>Recent Transactions</h2>
-        <ul class="transaction-list">
-          <li class="transaction-item">
-            <div class="transaction-main">
-              <div class="transaction-info">
-                <div class="transaction-top">
-                  <span class="transaction-name">Salary</span>
-                  <span class="transaction-amount income">+$2,000.00</span>
-                </div>
-                <div class="transaction-meta">
-                  <span class="tag">💡 Other</span>
-                  <span class="date">📅 Sep 1, 2026</span>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li class="transaction-item">
-            <div class="transaction-main">
-              <div class="transaction-info">
-                <div class="transaction-top">
-                  <span class="transaction-name">Food</span>
-                  <span class="transaction-amount expense">-$120.00</span>
-                </div>
-                <div class="transaction-meta">
-                  <span class="tag">🍔 Food</span>
-                  <span class="date">📅 Sep 12, 2026</span>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li class="transaction-item">
-            <div class="transaction-main">
-              <div class="transaction-info">
-                <div class="transaction-top">
-                  <span class="transaction-name">Travel</span>
-                  <span class="transaction-amount expense">-$300.00</span>
-                </div>
-                <div class="transaction-meta">
-                  <span class="tag">✈️ Travel</span>
-                  <span class="date">📅 Sep 14, 2026</span>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </main>
+    <script src="script.js"></script>
   </body>
 </html>
